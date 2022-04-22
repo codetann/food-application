@@ -7,7 +7,9 @@ const config: any = {
 
 const colors: any = {
   brand: {
-    900: "#1a365d",
+    orange: "#FF8F66",
+    purple: "#7C5ACB",
+    darkPurple: "#3E206D",
   },
 };
 

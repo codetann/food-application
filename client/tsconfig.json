@@ -20,6 +20,8 @@
       "@theme": ["./src/theme"],
       "@stores": ["./src/lib/stores"],
       "@hooks": ["./src/lib/hooks"],
+      "@components": ["./src/components"],
+      "@routes": ["./src/routes"],
     }
   },
   "include": ["src"],
