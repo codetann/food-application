@@ -1,16 +1,36 @@
+import { VStack, Box } from "@chakra-ui/react";
 import { Page, Button } from "@components";
+import { InfoSlides } from "../components";
+
+/* data */
+const slides = [
+  {
+    image: "https://www.svgrepo.com/show/251617/food-truck.svg",
+    title: "Discover places to eat near you",
+    description:
+      "Can't decide where to eat? Join with friends and find the best places to eat near you.",
+  },
+  {
+    image: "https://www.svgrepo.com/show/251618/restaurant-wine.svg",
+    title: "Swipe through restaurants",
+    description:
+      "Swipe through restaurants like Tinder to find your next food love",
+  },
+];
 
 type Props = {};
 
 function LandingPage({}: Props) {
   return (
     <Page bg="brand.darkPurple">
-      <h1>Landing Join</h1>
-      <Button onClick={() => null}>Join Friends</Button>
-
-      <Button variant="ghost" onClick={() => null}>
-        Create Game
-      </Button>
+      <InfoSlides slides={slides} />
+      <Box pt="3rem" />
+      <VStack maxW="xs" w="100%">
+        <Button onClick={() => null}>Create Game</Button>
+        <Button variant="ghost" onClick={() => null}>
+          Join Friends
+        </Button>
+      </VStack>
     </Page>
   );
 }
