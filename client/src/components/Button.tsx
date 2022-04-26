@@ -5,7 +5,7 @@ type Props = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   isDisabled?: boolean;
   isLoading?: boolean;
-  isFullWidth?: boolean;
+  width?: string;
   variant?: "default" | "outline" | "ghost";
 };
 
@@ -33,15 +33,15 @@ function Button({
   onClick,
   isDisabled,
   isLoading,
-  isFullWidth,
-
+  width = "100%",
   variant = "default",
 }: Props) {
   return (
     <CButton
+      isDisabled={isDisabled}
       onClick={onClick}
-      _hover={{ opacity: 0.6 }}
-      width="100%"
+      _hover={isDisabled ? {} : { opacity: 0.6 }}
+      width={width}
       rounded="3xl"
       height="3rem"
       {...styles[variant]}

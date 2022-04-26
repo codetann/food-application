@@ -1,4 +1,5 @@
 import { VStack, Box, HStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { Page, Button } from "@components";
 import { InfoSlides } from "../components";
 
@@ -26,12 +27,15 @@ function LandingPage({}: Props) {
       <InfoSlides slides={slides} />
       <Box pt="3rem" />
       <VStack maxW="xs" w="100%">
-        <Button onClick={() => null} _hover={{ opacity: 0.7 }}>
-          Create Game
-        </Button>
-        <Button variant="ghost" onClick={() => null}>
-          Join Friends
-        </Button>
+        <Link style={{ width: "100%" }} to="/create">
+          <Button onClick={() => null}>Create Game</Button>
+        </Link>
+
+        <Link style={{ width: "100%" }} to="/join">
+          <Button variant="ghost" onClick={() => null}>
+            Join Friends
+          </Button>
+        </Link>
       </VStack>
     </Page>
   );
