@@ -34,11 +34,13 @@ function Button({
   isDisabled,
   isLoading,
   isFullWidth,
+
   variant = "default",
 }: Props) {
   return (
     <CButton
       onClick={onClick}
+      _hover={{ opacity: 0.6 }}
       width="100%"
       rounded="3xl"
       height="3rem"

@@ -1,4 +1,4 @@
-import { VStack, Box } from "@chakra-ui/react";
+import { VStack, Box, HStack } from "@chakra-ui/react";
 import { Page, Button } from "@components";
 import { InfoSlides } from "../components";
 
@@ -26,7 +26,9 @@ function LandingPage({}: Props) {
       <InfoSlides slides={slides} />
       <Box pt="3rem" />
       <VStack maxW="xs" w="100%">
-        <Button onClick={() => null}>Create Game</Button>
+        <Button onClick={() => null} _hover={{ opacity: 0.7 }}>
+          Create Game
+        </Button>
         <Button variant="ghost" onClick={() => null}>
           Join Friends
         </Button>

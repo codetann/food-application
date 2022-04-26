@@ -1,4 +1,12 @@
-import { Heading, VStack, Text, Image } from "@chakra-ui/react";
+import {
+  Heading,
+  VStack,
+  Text,
+  Image,
+  HStack,
+  Center,
+  Box,
+} from "@chakra-ui/react";
 import { useSlideTransition } from "@hooks";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -16,7 +24,6 @@ function InfoSlide({ image, title, description }: InfoSlideProps) {
       w="100%"
       justify="center"
       align="center"
-      h="300px"
       textAlign="center"
     >
       <Image width="100%" maxW={["12rem"]} src={image} alt={title} pb="1rem" />
@@ -30,27 +37,31 @@ function InfoSlides({ slides }: { slides: InfoSlideProps[] }) {
   const slideIndex = useSlideTransition(slides.length, 7000);
 
   return (
-    <VStack maxW="2xl" w="100%" overflow="hidden">
+    <Box h="300px">
       {slides.map((slide, index) => (
         <AnimatePresence>
-          {slideIndex === index && (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
-              transition={{
-                duration: 1,
-                ease: "easeInOut",
-                staggerChildren: 0.2,
-              }}
-            >
-              <InfoSlide key={index} {...slide} />
-            </motion.div>
-          )}
+          <HStack w="100%" justify="center" align="center">
+            {slideIndex === index && (
+              <motion.div
+                layout
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
+              >
+                <motion.div layoutId={index.toString()}>
+                  <InfoSlide key={index} {...slide} />
+                </motion.div>
+              </motion.div>
+            )}
+          </HStack>
         </AnimatePresence>
       ))}
-    </VStack>
+    </Box>
   );
 }
 
